@@ -1,35 +1,14 @@
 // @license The MIT License (MIT)
 // @copyright Stanislav Kalashnik <darkpark.main@gmail.com>
 
-/* spa-component-scrollbar: release */
-.component.scrollBar {
-    display: inline-block;
-    height: 100%;
-    width: $width;
-    vertical-align: bottom;
-    background-color: #bbb;
+@import "../node_modules/spa-component/sass/main";
+@import "body";
 
-    .thumb {
-        display: block;
-        width: $width;
-        min-height: $width;
-        background-color: #aaa;
+.spa-component-scrollbar {
+    @include spa-component-release;
+    @include spa-component-scrollbar;
 
-        &.hidden {
-            display: none;
-        }
-    }
-}
-
-.component.scrollBar.horizontal {
-    display: block;
-    height: $height;
-    width: 100%;
-
-    .thumb {
-        display: inline-block;
-        vertical-align: top;
-        height: $height;
-        min-width: $height;
+    @if $DEVELOP {
+        @include spa-component-develop;
     }
 }

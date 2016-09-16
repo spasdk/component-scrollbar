@@ -94,7 +94,7 @@ function ScrollBar ( config ) {
     config.focusable = config.focusable || false;
 
     // set default className if classList property empty or undefined
-    config.className = 'scrollBar ' + (config.className || '');
+    //config.className = 'scrollBar ' + (config.className || '');
 
     // horizontal or vertical
     if ( config.type ) {
@@ -124,6 +124,8 @@ function ScrollBar ( config ) {
 ScrollBar.prototype = Object.create(Component.prototype);
 ScrollBar.prototype.constructor = ScrollBar;
 
+// set component name
+ScrollBar.prototype.name = 'spa-component-scrollbar';
 
 ScrollBar.prototype.TYPE_VERTICAL   = 1;
 ScrollBar.prototype.TYPE_HORIZONTAL = 2;
