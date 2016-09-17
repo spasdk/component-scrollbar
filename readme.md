@@ -1,6 +1,7 @@
 Scrollbar component
 ===================
 
+[![Build Status](https://img.shields.io/travis/spasdk/component-scrollbar.svg?style=flat-square)](https://travis-ci.org/spasdk/component-scrollbar)
 [![NPM version](https://img.shields.io/npm/v/spa-component-scrollbar.svg?style=flat-square)](https://www.npmjs.com/package/spa-component-scrollbar)
 [![Dependencies Status](https://img.shields.io/david/spasdk/component-scrollbar.svg?style=flat-square)](https://david-dm.org/spasdk/component-scrollbar)
 [![Gitter](https://img.shields.io/badge/gitter-join%20chat-blue.svg?style=flat-square)](https://gitter.im/DarkPark/spasdk)
