@@ -42,10 +42,16 @@ function ScrollBar ( config ) {
     config = config || {};
 
     if ( DEVELOP ) {
-        if ( typeof config !== 'object' ) { throw new Error(__filename + ': wrong config type'); }
+        if ( typeof config !== 'object' ) {
+            throw new Error(__filename + ': wrong config type');
+        }
         // init parameters checks
-        if ( config.className && typeof config.className !== 'string' ) { throw new Error(__filename + ': wrong or empty config.className'); }
-        if ( config.type      && Number(config.type) !== config.type  ) { throw new Error(__filename + ': config.type must be a number'); }
+        if ( 'className' in config && (!config.className || typeof config.className !== 'string') ) {
+            throw new Error(__filename + ': wrong or empty config.className');
+        }
+        if ( config.type && Number(config.type) !== config.type ) {
+            throw new Error(__filename + ': config.type must be a number');
+        }
     }
 
     /**
@@ -140,15 +146,22 @@ ScrollBar.prototype.init = function ( config ) {
     config = config || {};
 
     if ( DEVELOP ) {
-        if ( arguments.length !== 1 ) { throw new Error(__filename + ': wrong arguments number'); }
-        if ( typeof config !== 'object' ) { throw new Error(__filename + ': wrong config type'); }
+        if ( arguments.length !== 1 ) {
+            throw new Error(__filename + ': wrong arguments number');
+        }
+        if ( typeof config !== 'object' ) {
+            throw new Error(__filename + ': wrong config type');
+        }
     }
 
     // set actual scroll size
     if ( config.realSize !== undefined ) {
         if ( DEVELOP ) {
-            if ( Number(config.realSize) !== config.realSize ) { throw new Error(__filename + ': config.realSize value must be a number'); }
+            if ( Number(config.realSize) !== config.realSize ) {
+                throw new Error(__filename + ': config.realSize value must be a number');
+            }
         }
+
         // apply
         this.realSize = config.realSize;
     }
@@ -156,9 +169,14 @@ ScrollBar.prototype.init = function ( config ) {
     // set visible area size
     if ( config.viewSize !== undefined ) {
         if ( DEVELOP ) {
-            if ( Number(config.viewSize) !== config.viewSize ) { throw new Error(__filename + ': config.viewSize value must be a number'); }
-            if ( config.viewSize < 0 ) { throw new Error(__filename + ': config.viewSize value must be greater than 0'); }
+            if ( Number(config.viewSize) !== config.viewSize ) {
+                throw new Error(__filename + ': config.viewSize value must be a number');
+            }
+            if ( config.viewSize < 0 ) {
+                throw new Error(__filename + ': config.viewSize value must be greater than 0');
+            }
         }
+
         // apply
         this.viewSize = config.viewSize;
     }
@@ -201,12 +219,18 @@ ScrollBar.prototype.init = function ( config ) {
  */
 ScrollBar.prototype.scrollTo = function ( value ) {
     if ( DEVELOP ) {
-        if ( arguments.length !== 1 ) { throw new Error(__filename + ': wrong arguments number'); }
-        if ( Number(value) !== value ) { throw new Error(__filename + ': value must be a number'); }
+        if ( arguments.length !== 1 ) {
+            throw new Error(__filename + ': wrong arguments number');
+        }
+        if ( Number(value) !== value ) {
+            throw new Error(__filename + ': value must be a number');
+        }
         if ( this.realSize > this.viewSize && value > this.realSize - this.viewSize ) {
             throw new Error(__filename + ': value is greater than this.realSize-this.viewSize');
         }
-        if ( value < 0 ) { throw new Error(__filename + ': value is less then 0'); }
+        if ( value < 0 ) {
+            throw new Error(__filename + ': value is less then 0');
+        }
     }
 
     // value has changed
